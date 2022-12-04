@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <!--Load the AJAX API-->
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+
+    <title>Тест по профориентации</title>
+    <style>
+      body {
+        font-size: 1.2rem;
+        color: rgb(65, 19, 19);
+      }
+      .form-check-input {
+        transform: scale(1.6);
+      }
+      h1 {
+        color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="mb-5 h1a">
+        Тест на предрасположенность<br />к определенным типам работы
+      </h1>
+      <h1 class="mb-5 h1b" hidden>
+        Результаты теста на предрасположенность<br />к определенным типам работы
+      </h1>
+      <form class="forma" onsubmit="sendForm(this); return false;">
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-4 col-form-label"
+            ><h5>Напишите ваше имя:</h5></label
+          >
+          <div class="col-sm-8">
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              id="inputName"
+              placeholder="Имя и Фамилия"
+              required
+            />
+          </div>
+        </div>
+        <hr />
+
+        <fieldset class="form-group row">
+          <legend class="col-form-label col-sm-4 float-sm-left pt-0">
+            <h4>1. В школе меня больше интересовали:</h4>
+          </legend>
+          <div class="col-sm-8">
+            <div class="form-check">
+              <input
+                class="form-check-input answer1"
+                type="radio"
+                name="q1"
+                id="exampleRadios11"
+                value="1. общественная деятельность, организация различных мероприятий"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios11">
+                1. общественная деятельность, организация различных мероприятий;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer2"
+                type="radio"
+                name="q1"
+                id="exampleRadios12"
+                value="2. занятия, связанные с выполнением расчетов, схем, чертежей"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios12">
+                2. занятия, связанные с выполнением расчетов, схем, чертежей;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer3"
+                type="radio"
+                name="q1"
+                id="exampleRadios13"
+                value="3. занятия радиотехникой и компьютерами"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios13">
+                3. занятия радиотехникой и компьютерами;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer4"
+                type="radio"
+                name="q1"
+                id="exampleRadios14"
+                value="4. автодело, управление автомобилем, мотоциклом"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios14">
+                4. автодело, управление автомобилем, мотоциклом;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer5"
+                type="radio"
+                name="q1"
+                id="exampleRadios15"
+                value="5. соревнования, занятия спортом"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios15">
+                5. соревнования, занятия спортом;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer6"
+                type="radio"
+                name="q1"
+                id="exampleRadios16"
+                value="6. уроки труда"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios16">
+                6. уроки труда.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <hr />
+
+        <fieldset class="form-group row">
+          <legend class="col-form-label col-sm-4 float-sm-left pt-0">
+            <h4>2. Я больше всего ценю в людях:</h4>
+          </legend>
+          <div class="col-sm-8">
+            <div class="form-check">
+              <input
+                class="form-check-input answer1"
+                type="radio"
+                name="q2"
+                id="exampleRadios21"
+                value="1. способность заражать и заряжать своей энергией других людей"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios21">
+                1. способность заражать и заряжать своей энергией других людей;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer2"
+                type="radio"
+                name="q2"
+                id="exampleRadios22"
+                value="2. серьезность и сосредоточенность в работе"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios22">
+                2. серьезность и сосредоточенность в работе;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer3"
+                type="radio"
+                name="q2"
+                id="exampleRadios23"
+                value="3. умение сохранять работоспособность в условиях утомления"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios23">
+                3. умение сохранять работоспособность в условиях утомления;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer4"
+                type="radio"
+                name="q2"
+                id="exampleRadios24"
+                value="4. пунктуальность и точность"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios24">
+                4. пунктуальность и точность;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer5"
+                type="radio"
+                name="q2"
+                id="exampleRadios25"
+                value="5. смелость и решительность"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios25">
+                5. смелость и решительность;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer6"
+                type="radio"
+                name="q2"
+                id="exampleRadios26"
+                value="6. техническую грамотность"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios26">
+                6. техническую грамотность.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <hr />
+
+        <fieldset class="form-group row">
+          <legend class="col-form-label col-sm-4 float-sm-left pt-0">
+            <h4>
+              3. Среди различных областей деятельности меня больше привлекает:
+            </h4>
+          </legend>
+          <div class="col-sm-8">
+            <div class="form-check">
+              <input
+                class="form-check-input answer1"
+                type="radio"
+                name="q3"
+                id="exampleRadios31"
+                value="1. воспитательная и организаторская работа"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios31">
+                1. воспитательная и организаторская работа;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer2"
+                type="radio"
+                name="q3"
+                id="exampleRadios32"
+                value="2. обслуживание электронно-вычислительной техники"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios32">
+                2. обслуживание электронно-вычислительной техники;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer3"
+                type="radio"
+                name="q3"
+                id="exampleRadios33"
+                value="3. работа, связанная с использованием средств связи"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios33">
+                3. работа, связанная с использованием средств связи;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer4"
+                type="radio"
+                name="q3"
+                id="exampleRadios34"
+                value="4. вождение автомобиля или других средств транспорта"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios34">
+                4. вождение автомобиля или других средств транспорта;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer5"
+                type="radio"
+                name="q3"
+                id="exampleRadios35"
+                value="5. систематические занятия спортом"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios35">
+                5. систематические занятия спортом;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer6"
+                type="radio"
+                name="q3"
+                id="exampleRadios36"
+                value="6. обслуживание и ремонт технических устройств"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios36">
+                6. обслуживание и ремонт технических устройств.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <hr />
+
+        <fieldset class="form-group row">
+          <legend class="col-form-label col-sm-4 float-sm-left pt-0">
+            <h4>
+              4. В спорте после соответствующей подготовки я, скорее всего,
+              достиг бы успеха как:
+            </h4>
+          </legend>
+          <div class="col-sm-8">
+            <div class="form-check">
+              <input
+                class="form-check-input answer1"
+                type="radio"
+                name="q4"
+                id="exampleRadios41"
+                value="1. тренер спортивной команды"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios41">
+                1. тренер спортивной команды;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer2"
+                type="radio"
+                name="q4"
+                id="exampleRadios42"
+                value="2. стрелок из спортивного оружия"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios42">
+                2. стрелок из спортивного оружия;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer3"
+                type="radio"
+                name="q4"
+                id="exampleRadios43"
+                value="3. спортсмен-любитель"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios43">
+                3. спортсмен-любитель;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer4"
+                type="radio"
+                name="q4"
+                id="exampleRadios44"
+                value="4. автогонщик"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios44">
+                4. автогонщик;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer5"
+                type="radio"
+                name="q4"
+                id="exampleRadios45"
+                value="5. каратист, самбист, боксер"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios45">
+                5. каратист, самбист, боксер;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer6"
+                type="radio"
+                name="q4"
+                id="exampleRadios46"
+                value="6. механик в команде мотогонщиков"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios46">
+                6. механик в команде мотогонщиков.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <hr />
+
+        <fieldset class="form-group row">
+          <legend class="col-form-label col-sm-4 float-sm-left pt-0">
+            <h4>5. Думаю, что товарищи больше всего ценят во мне:</h4>
+          </legend>
+          <div class="col-sm-8">
+            <div class="form-check">
+              <input
+                class="form-check-input answer1"
+                type="radio"
+                name="q5"
+                id="exampleRadios51"
+                value="1. принципиальность, твердость характера"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios51">
+                1. принципиальность, твердость характера;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer2"
+                type="radio"
+                name="q5"
+                id="exampleRadios52"
+                value="2. усидчивость и терпеливость"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios52">
+                2. усидчивость и терпеливость;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer3"
+                type="radio"
+                name="q5"
+                id="exampleRadios53"
+                value="3. точность, исполнительность"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios53">
+                3. точность, исполнительность;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer4"
+                type="radio"
+                name="q5"
+                id="exampleRadios54"
+                value="4. физическую работоспособность"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios54">
+                4. физическую работоспособность;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer5"
+                type="radio"
+                name="q5"
+                id="exampleRadios55"
+                value="5. отвагу, готовность к преодолению сложных и даже опасных
+                ситуаций"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios55">
+                5. отвагу, готовность к преодолению сложных и даже опасных
+                ситуаций;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer6"
+                type="radio"
+                name="q5"
+                id="exampleRadios56"
+                value="6. способность к ремеслу, ручному творчеству"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios56">
+                6. способность к ремеслу, ручному творчеству.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <hr />
+
+        <fieldset class="form-group row">
+          <legend class="col-form-label col-sm-4 float-sm-left pt-0">
+            <h4>6. После службы в армии я предпочел бы работать:</h4>
+          </legend>
+          <div class="col-sm-8">
+            <div class="form-check">
+              <input
+                class="form-check-input answer1"
+                type="radio"
+                name="q6"
+                id="exampleRadios61"
+                value="1. учителем или мастером профессионально-технического обучения"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios61">
+                1. учителем или мастером профессионально-технического обучения;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer2"
+                type="radio"
+                name="q6"
+                id="exampleRadios62"
+                value="2. оператором электронно-вычислительной техники"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios62">
+                2. оператором электронно-вычислительной техники;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer3"
+                type="radio"
+                name="q6"
+                id="exampleRadios63"
+                value="3. радиотелеграфистом"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios63">
+                3. радиотелеграфистом;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer4"
+                type="radio"
+                name="q6"
+                id="exampleRadios64"
+                value="4. водителем (механизатором широкого профиля)"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios64">
+                4. водителем (механизатором широкого профиля);
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer5"
+                type="radio"
+                name="q6"
+                id="exampleRadios65"
+                value="5. испытателем, каскадером, горноспасателем, телохранителем"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios65">
+                5. испытателем, каскадером, горноспасателем, телохранителем;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer6"
+                type="radio"
+                name="q6"
+                id="exampleRadios66"
+                value="6. мастером по ремонту бытовой техники"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios66">
+                6. мастером по ремонту бытовой техники.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <hr />
+
+        <fieldset class="form-group row">
+          <legend class="col-form-label col-sm-4 float-sm-left pt-0">
+            <h4>
+              7. Мне лучше удается деятельность, которая требует от человека:
+            </h4>
+          </legend>
+          <div class="col-sm-8">
+            <div class="form-check">
+              <input
+                class="form-check-input answer1"
+                type="radio"
+                name="q7"
+                id="exampleRadios71"
+                value="1. инициативы и находчивости"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios71">
+                1. инициативы и находчивости;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer2"
+                type="radio"
+                name="q7"
+                id="exampleRadios72"
+                value="2. аккуратности и внимательности"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios72">
+                2. аккуратности и внимательности;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer3"
+                type="radio"
+                name="q7"
+                id="exampleRadios73"
+                value="3. настойчивости"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios73">
+                3. настойчивости;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer4"
+                type="radio"
+                name="q7"
+                id="exampleRadios74"
+                value="4. точного выполнения инструкций и предписаний"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios74">
+                4. точного выполнения инструкций и предписаний;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer5"
+                type="radio"
+                name="q7"
+                id="exampleRadios75"
+                value="5. смелости и готовности к риску"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios75">
+                5. смелости и готовности к риску;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer6"
+                type="radio"
+                name="q7"
+                id="exampleRadios76"
+                value="6. технического мышления"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios76">
+                6. технического мышления.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <hr />
+
+        <fieldset class="form-group row">
+          <legend class="col-form-label col-sm-4 float-sm-left pt-0">
+            <h4>8. Я предпочел бы прочитать книгу о:</h4>
+          </legend>
+          <div class="col-sm-8">
+            <div class="form-check">
+              <input
+                class="form-check-input answer1"
+                type="radio"
+                name="q8"
+                id="exampleRadios81"
+                value="1. выдающихся полководцах"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios81">
+                1. выдающихся полководцах;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer2"
+                type="radio"
+                name="q8"
+                id="exampleRadios82"
+                value="2. электронной аппаратуре и ее изобретателях"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios82">
+                2. электронной аппаратуре и ее изобретателях;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer3"
+                type="radio"
+                name="q8"
+                id="exampleRadios83"
+                value="3. достижениях в области радиотехники"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios83">
+                3. достижениях в области радиотехники;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer4"
+                type="radio"
+                name="q8"
+                id="exampleRadios84"
+                value="4. новых транспортных средствах"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios84">
+                4. новых транспортных средствах;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer5"
+                type="radio"
+                name="q8"
+                id="exampleRadios85"
+                value="5. тренировке альпинистов"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios85">
+                5. тренировке альпинистов;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer6"
+                type="radio"
+                name="q8"
+                id="exampleRadios86"
+                value="6. перспективных разработках в электротехнике и механике"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios86">
+                6. перспективных разработках в электротехнике и механике.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <hr />
+
+        <fieldset class="form-group row">
+          <legend class="col-form-label col-sm-4 float-sm-left pt-0">
+            <h4>9. Я считаю, что более способен:</h4>
+          </legend>
+          <div class="col-sm-8">
+            <div class="form-check">
+              <input
+                class="form-check-input answer1"
+                type="radio"
+                name="q9"
+                id="exampleRadios91"
+                value="1. сохранять самообладание и выдержку, быстро принимать решения
+                в трудных, критических ситуациях"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios91">
+                1. сохранять самообладание и выдержку, быстро принимать решения
+                в трудных, критических ситуациях;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer2"
+                type="radio"
+                name="q9"
+                id="exampleRadios92"
+                value="2. кропотливо анализировать поступающую информацию (сигналы),
+                выделять в ней главное"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios92">
+                2. кропотливо анализировать поступающую информацию (сигналы),
+                выделять в ней главное;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer3"
+                type="radio"
+                name="q9"
+                id="exampleRadios93"
+                value="3. быть предельно точным в выполнении порученных мне заданий"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios93">
+                3. быть предельно точным в выполнении порученных мне заданий;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer4"
+                type="radio"
+                name="q9"
+                id="exampleRadios94"
+                value="4. длительное время преодолевать утомление и сохранять
+                работоспособность"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios94">
+                4. длительное время преодолевать утомление и сохранять
+                работоспособность;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer5"
+                type="radio"
+                name="q9"
+                id="exampleRadios95"
+                value="5. проявлять решительность и смелость, действовать на грани
+                риска"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios95">
+                5. проявлять решительность и смелость, действовать на грани
+                риска;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer6"
+                type="radio"
+                name="q9"
+                id="exampleRadios96"
+                value="6. быстро разобраться в особенностях устройства незнакомого мне
+                технического устройства"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios96">
+                6. быстро разобраться в особенностях устройства незнакомого мне
+                технического устройства.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <hr />
+
+        <fieldset class="form-group row">
+          <legend class="col-form-label col-sm-4 float-sm-left pt-0">
+            <h4>10. По окончании рабочей недели я предпочел бы:</h4>
+          </legend>
+          <div class="col-sm-8">
+            <div class="form-check">
+              <input
+                class="form-check-input answer1"
+                type="radio"
+                name="q10"
+                id="exampleRadios101"
+                value="1. организовать коллективное мероприятие с товарищами"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios101">
+                1. организовать коллективное мероприятие с товарищами;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer2"
+                type="radio"
+                name="q10"
+                id="exampleRadios102"
+                value="2. систематизировать материалы своих коллекций"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios102">
+                2. систематизировать материалы своих коллекций;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer3"
+                type="radio"
+                name="q10"
+                id="exampleRadios103"
+                value="3. посмотреть фильм о новых достижениях в области связи"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios103">
+                3. посмотреть фильм о новых достижениях в области связи;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer4"
+                type="radio"
+                name="q10"
+                id="exampleRadios104"
+                value="4. посетить выставку автомобилей"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios104">
+                4. посетить выставку автомобилей;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer5"
+                type="radio"
+                name="q10"
+                id="exampleRadios105"
+                value="5. участвовать в трудном и длительном туристическом походе"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios105">
+                5. участвовать в трудном и длительном туристическом походе;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer6"
+                type="radio"
+                name="q10"
+                id="exampleRadios106"
+                value="6. заняться ремонтом бытовой техники"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios106">
+                6. заняться ремонтом бытовой техники.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <hr />
+
+        <fieldset class="form-group row">
+          <legend class="col-form-label col-sm-4 float-sm-left pt-0">
+            <h4>
+              11. Мои родители (другие близкие люди) выше всего ценят в
+              человеке:
+            </h4>
+          </legend>
+          <div class="col-sm-8">
+            <div class="form-check">
+              <input
+                class="form-check-input answer1"
+                type="radio"
+                name="q11"
+                id="exampleRadios111"
+                value="1. организаторские способности"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios111">
+                1. организаторские способности;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer2"
+                type="radio"
+                name="q11"
+                id="exampleRadios112"
+                value="2. выдержку и терпение"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios112">
+                2. выдержку и терпение;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer3"
+                type="radio"
+                name="q11"
+                id="exampleRadios113"
+                value="3. исполнительность"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios113">
+                3. исполнительность;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer4"
+                type="radio"
+                name="q11"
+                id="exampleRadios114"
+                value="4. самодисциплину и работоспособность"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios114">
+                4. самодисциплину и работоспособность;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer5"
+                type="radio"
+                name="q11"
+                id="exampleRadios115"
+                value="5. силу и смелость"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios115">
+                5. силу и смелость;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer6"
+                type="radio"
+                name="q11"
+                id="exampleRadios116"
+                value="6. техническую грамотность"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios116">
+                6. техническую грамотность.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <hr />
+
+        <fieldset class="form-group row">
+          <legend class="col-form-label col-sm-4 float-sm-left pt-0">
+            <h4>12. Во время службы в армии я хотел бы:</h4>
+          </legend>
+          <div class="col-sm-8">
+            <div id="fg1" class="form-check">
+              <input
+                class="form-check-input answer1"
+                type="radio"
+                name="q12"
+                id="exampleRadios121"
+                value="1. приобрести и развить организаторские навыки"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios121">
+                1. приобрести и развить организаторские навыки;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer2"
+                type="radio"
+                name="q12"
+                id="exampleRadios122"
+                value="2. выполнять ответственную операторскую работу, требующую
+                самообладания и выдержки"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios122">
+                2. выполнять ответственную операторскую работу, требующую
+                самообладания и выдержки;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer3"
+                type="radio"
+                name="q12"
+                id="exampleRadios123"
+                value="3. овладеть средствами связи"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios123">
+                3. овладеть средствами связи;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer4"
+                type="radio"
+                name="q12"
+                id="exampleRadios124"
+                value="4. приобрести (закрепить) навыки вождения автомобиля и других
+                транспортных средств"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios124">
+                4. приобрести (закрепить) навыки вождения автомобиля и других
+                транспортных средств;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer5"
+                type="radio"
+                name="q12"
+                id="exampleRadios125"
+                value="5. совершенствовать свои физические и волевые качества"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios125">
+                5. совершенствовать свои физические и волевые качества;
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input answer6"
+                type="radio"
+                name="q12"
+                id="exampleRadios126"
+                value="6. повысить уровень технической грамотности"
+                required
+              />
+              <label class="form-check-label ml-3" for="exampleRadios126">
+                6. повысить уровень технической грамотности.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <hr />
+        <h4 class="mt-5">
+          Развернутые результаты тестирования будет отправлен вам на электронную
+          почту.
+        </h4>
+        <div class="form-group row mt-3">
+          <label for="inputEmail3" class="col-sm-5 col-form-label"
+            ><h5>Напишите адрес вашей электронной почты:</h5></label
+          >
+          <div class="col-sm-7">
+            <input
+              type="email"
+              name="email"
+              class="form-control"
+              id="inputEmail3"
+              placeholder="Email"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group row mt-3">
+          <label for="inputEmail3" class="col-sm-5 col-form-label"
+            ><h5>Напишите номер вашего телефона:</h5></label
+          >
+          <div class="col-sm-7">
+            <input
+              type="tel"
+              name="tel"
+              class="form-control"
+              id="inputEmail4"
+              placeholder="Телефона"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-5"></div>
+          <div class="col-sm-7">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="gridCheck1"
+                style="transform: scale(1.6)"
+                checked
+                required
+              />
+              <label class="form-check-label ml-2" for="gridCheck1">
+                Я соглашаюсь на обработку персональных данных
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-12 mt-5 mb-5">
+            <button
+              onclick="getSelectedValue(); "
+              type="submit"
+              class="btn btn-primary btn-block btn-lg"
+            >
+              Получить результат теста
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="container mt-5 answers" hidden>
+      <h3>Вы предрасположены:</h3>
+      <p id="check1"></p>
+      <p id="check2"></p>
+      <p id="check3"></p>
+      <p id="check4"></p>
+      <p id="check5"></p>
+      <p id="check6"></p>
+      <h4>
+        <hr />
+        Развернутые результаты тестирования будет отправлен на указанную вами
+        электронную почту.
+      </h4>
+    </div>
+
+    <!-- Identify where the chart should be drawn. -->
+    <div class="container"><div id="myPieChart" /></div>
+
+    <script>
+      let answer1 = document.getElementsByClassName("answer1");
+      let arrAnswer1 = [];
+
+      let answer2 = document.getElementsByClassName("answer2");
+      let arrAnswer2 = [];
+
+      let answer3 = document.getElementsByClassName("answer3");
+      let arrAnswer3 = [];
+
+      let answer4 = document.getElementsByClassName("answer4");
+      let arrAnswer4 = [];
+
+      let answer5 = document.getElementsByClassName("answer5");
+      let arrAnswer5 = [];
+
+      let answer6 = document.getElementsByClassName("answer6");
+      let arrAnswer6 = [];
+
+      function getSelectedValue() {
+        for (let i = 0; i < answer1.length; i++) {
+          if (answer1[i].checked) {
+            arrAnswer1.push(answer1[i].id);
+            console.log(arrAnswer1.length);
+            check1.innerHTML =
+              "к командным должностям: на " +
+              (+arrAnswer1.length / 0.12).toFixed(1) +
+              " %.";
+          }
+        }
+
+        for (let i = 0; i < answer2.length; i++) {
+          if (answer2[i].checked) {
+            arrAnswer2.push(answer2[i].id);
+            console.log(arrAnswer2.length);
+            check2.innerHTML =
+              "к операторской работе: на " +
+              (+arrAnswer2.length / 0.12).toFixed(1) +
+              " %.";
+          }
+        }
+
+        for (let i = 0; i < answer3.length; i++) {
+          if (answer3[i].checked) {
+            arrAnswer3.push(answer3[i].id);
+            console.log(arrAnswer3.length);
+            check3.innerHTML =
+              "к работе связанной со связями и наблюдением : на " +
+              (+arrAnswer3.length / 0.12).toFixed(1) +
+              " %.";
+          }
+        }
+
+        for (let i = 0; i < answer4.length; i++) {
+          if (answer4[i].checked) {
+            arrAnswer4.push(answer4[i].id);
+            console.log(arrAnswer4.length);
+            check4.innerHTML =
+              "к работе водителем водительским: на " +
+              (+arrAnswer4.length / 0.12).toFixed(1) +
+              " %.";
+          }
+        }
+
+        for (let i = 0; i < answer5.length; i++) {
+          if (answer5[i].checked) {
+            arrAnswer5.push(answer5[i].id);
+            console.log(arrAnswer5.length);
+            check5.innerHTML =
+              "к работой связанным с выполнением обязанностей специального назначения: на " +
+              (+arrAnswer5.length / 0.12).toFixed(1) +
+              " %.";
+          }
+        }
+
+        for (let i = 0; i < answer6.length; i++) {
+          if (answer6[i].checked) {
+            arrAnswer6.push(answer6[i].id);
+            console.log(arrAnswer6.length);
+            check6.innerHTML =
+              "к технической работе: на " +
+              (+arrAnswer6.length / 0.12).toFixed(1) +
+              " %.";
+          }
+        }
+      }
+
+      let formSend = document.querySelector(".forma");
+      let btn = document.querySelector(".btn");
+      let answers = document.querySelector(".answers");
+      let h1a = document.querySelector(".h1a");
+      let h1b = document.querySelector(".h1b");
+
+      btn.addEventListener("click", () => {
+        arrAnswer1 = [];
+        arrAnswer2 = [];
+        arrAnswer3 = [];
+        arrAnswer4 = [];
+        arrAnswer5 = [];
+        arrAnswer6 = [];
+
+        let form = document.forms[0];
+
+        let q1 = form.elements.q1;
+        let q2 = form.elements.q2;
+        let q3 = form.elements.q3;
+        let q4 = form.elements.q4;
+        let q5 = form.elements.q5;
+        let q6 = form.elements.q6;
+        let q7 = form.elements.q7;
+        let q8 = form.elements.q8;
+        let q9 = form.elements.q9;
+        let q10 = form.elements.q10;
+        let q11 = form.elements.q11;
+        let q12 = form.elements.q12;
+        let inputName = form.elements.inputName;
+        let inputEmail = form.elements.inputEmail3;
+        let inputTel = form.elements.inputEmail4;
+        let checkYes = form.elements.gridCheck1;
+
+        if (
+          q1.value != 0 &&
+          q2.value != 0 &&
+          q3.value != 0 &&
+          q4.value != 0 &&
+          q5.value != 0 &&
+          q6.value != 0 &&
+          q7.value != 0 &&
+          q8.value != 0 &&
+          q9.value != 0 &&
+          q10.value != 0 &&
+          q11.value != 0 &&
+          q12.value != 0 &&
+          inputName.value != 0 &&
+          inputTel.value != 0 &&
+          inputEmail.value != 0 &&
+          // inputEmail.value == /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i &&
+          checkYes.value != 0
+        ) {
+          formSend.hidden = true;
+          answers.hidden = false;
+          h1a.hidden = true;
+          h1b.hidden = false;
+        }
+      });
+
+      async function sendForm(form) {
+        let response = await fetch("php/test_obr.php", {
+          method: "POST",
+          body: new FormData(form),
+        });
+      }
+
+      // google.charts.load("current", { packages: ["corechart"] });
+      // google.charts.setOnLoadCallback(drawChart);
+
+      // let r1 = [];
+      // r1.push(arrAnswer6.length);
+      // console.log(r1);
+
+      // function drawChart(chartData = r1, lineChartId) {
+      //   // Define the chart to be drawn.
+      //   var data = new google.visualization.DataTable();
+      //   data.addColumn("string", "Element");
+      //   data.addColumn("number", "Percentage");
+      //   data.addRows(chartData);
+      //   var options = {
+      //     chartArea: {
+      //       left: 40,
+      //       width: "200%",
+      //     },
+      //     legend: {
+      //       position: "right",
+      //     },
+      //     width: "100%",
+      //   };
+      //   // Instantiate and draw the chart.
+      //   var chart = new google.visualization.PieChart(
+      //     document.getElementById("myPieChart")
+      //   );
+      //   chart.draw(data, options);
+      // }
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+      integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
