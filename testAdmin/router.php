@@ -1,15 +1,15 @@
 <?php
 session_start();
-$url = explode("/",$_SERVER['REQUEST_URI']);
+$url = explode("/", $_SERVER['REQUEST_URI']);
 require_once("php/bd.php");
 require_once("php/classes/User.php");
 
 
 
 if ($url[1] == "login") {
-  $content = file_get_contents("/login.html");
+  $content = file_get_contents("pages/login.php");
 } else if ($url[1] == "users") {
-  require_once("/index.html");
+  require_once("pages/users/index.html");
 } else if ($url[1] == "addUser") {
   echo User::addUser($_POST["name"], $_POST["lastname"], $_POST["email"], $_POST["pass"]);
 } else if ($url[1] == "authUser") {
@@ -18,15 +18,14 @@ if ($url[1] == "login") {
   echo User::getUser($_SESSION["id"]);
 } else if ($url[1] == "getUsers") {
   echo User::getUsers();
-
 } else {
-$content = file_get_contents("/login.html");
+  $content = file_get_contents("pages/login.php");
 }
 
 
 
-if(!empty($content))
-require_once("template.php");
+if (!empty($content))
+  require_once("template.php");
 
 
 

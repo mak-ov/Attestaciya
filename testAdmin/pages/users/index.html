@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <title>Личный кабинет</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-3">
+          <div
+            class="nav flex-column nav-pills"
+            id="v-pills-tab"
+            role="tablist"
+            aria-orientation="vertical"
+          >
+            <a
+              class="nav-link"
+              id="profileTab"
+              data-toggle="pill"
+              href="#v-pills-profile"
+              role="tab"
+              aria-controls="v-pills-profile"
+              aria-selected="false"
+              >Профиль</a
+            >
+            <a
+              class="nav-link"
+              id="messagesTab"
+              data-toggle="pill"
+              href="#v-pills-messages"
+              role="tab"
+              aria-controls="v-pills-messages"
+              aria-selected="false"
+              >Сообщения</a
+            >
+            <a
+              class="nav-link"
+              id="settingsTab"
+              data-toggle="pill"
+              href="#v-pills-settings"
+              role="tab"
+              aria-controls="v-pills-settings"
+              aria-selected="false"
+              >Настройки</a
+            >
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="tab-content" id="v-pills-tabContent">
+            <div
+              class="tab-pane fade"
+              id="v-pills-profile"
+              role="tabpanel"
+              aria-labelledby="v-pills-profile-tab"
+            >
+              <div class="row">
+                <div class="col-md-9">
+                  <h1 id="userName"></h1>
+                  <p>Телефон: <span id="userTel"></span></p>
+                  <p>Email: <span id="userMail"></span></p>
+                  <p>Id: <span id="userId"></span></p>
+                  <p>1. В школе меня больше интересовали: <span id="q1"></span></p>
+                  <p>2. Я больше всего ценю в людях: <span id="q2"></span></p>
+                  <p>3. Среди различных областей деятельности меня больше привлекает: <span id="q3"></span></p>
+                  <p>4. В спорте после соответствующей подготовки я, скорее всего, достиг бы успеха как: <span id="q4"></span></p>
+                  <p>5. Думаю, что товарищи больше всего ценят во мне: <span id="q5"></span></p>
+                  <p>6. После службы в армии я предпочел бы работать: <span id="q6"></span></p>
+                  <p>7. Мне лучше удается деятельность, которая требует от человека: <span id="q7"></span></p>
+                  <p>8. Я предпочел бы прочитать книгу о: <span id="q8"></span></p>
+                  <p>9. Я считаю, что более способен: <span id="q9"></span></p>
+                  <p>10. По окончании рабочей недели я предпочел бы: <span id="q10"></span></p>
+                  <p>11. Мои родители (другие близкие люди) выше всего ценят в человеке: <span id="q11"></span></p>
+                  <p>12. Во время службы в армии я хотел бы: <span id="q12"></span></p>
+
+                </div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="v-pills-messages"
+              role="tabpanel"
+              aria-labelledby="v-pills-messages-tab"
+            >
+              
+              <div class="row mt-5">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Имя</th>
+                      <th scope="col">Телефон</th>
+                      <th scope="col">Email</th>
+                    </tr>
+                  </thead>
+                  <tbody id="userListTable"></tbody>
+                </table>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="v-pills-settings"
+              role="tabpanel"
+              aria-labelledby="v-pills-settings-tab"
+            >
+              <h2>Страница с настройками</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      let pathname = location.pathname.split("/")[2];
+      let navLinks = document.querySelectorAll(".nav-link");
+
+      async function getUser() {
+        let response = await fetch("/getUser");
+        return await response.json();
+      }
+
+      async function getUsers() {
+        let response = await fetch("/getUsers");
+        return await response.json();
+      }
+
+      addEventListener("popstate", (event) => {
+        let path = location.pathname.split("/")[2];
+
+        if (path == "profile") {
+          $("#profileTab").tab("show");
+        } else if (path == "messages") {
+          $("#messagesTab").tab("show");
+        } else if (path == "settings") {
+          $("#settingsTab").tab("show");
+        }
+      });
+
+      if (pathname == "profile") {
+        getUser().then((user) => {
+          userName.innerText = `${user.name} ${user.lastname}`;
+          userMail.innerText = `${user.email}`;
+          userId.innerText = `${user.id}`;
+          q1.innerText = `${user.q1}`;
+          q2.innerText = `${user.q2}`;
+          q3.innerText = `${user.q3}`;
+          q4.innerText = `${user.q4}`;
+          q5.innerText = `${user.q5}`;
+          q6.innerText = `${user.q6}`;
+          q7.innerText = `${user.q7}`;
+          q8.innerText = `${user.q8}`;
+          q9.innerText = `${user.q9}`;
+          q10.innerText = `${user.q10}`;
+          q11.innerText = `${user.q11}`;
+          q12.innerText = `${user.q12}`;
+        });
+
+        $("#v-pills-profile").tab("show");
+      } else if (pathname == "messages") {
+        getUsers().then((users) => {
+          console.log(users);
+          for (let i = 0; i < users.length; i++) {
+            userListTable.insertAdjacentHTML(
+              "beforeend",
+              `
+          <tr>
+            <th scope="row">${users[i].id}</th>
+            <td>${users[i].name}</td>
+            <td>${users[i].tel}</td>
+            <td>${users[i].email}</td>
+            </tr>
+            `
+            );
+          }
+        });
+
+        $("#v-pills-messages").tab("show");
+      } else if (pathname == "settings") {
+        $("#v-pills-settings").tab("show");
+      } else {
+        location.href = location.protocol + "//" + location.host;
+      }
+      document.getElementById(pathname + "Tab").classList.add("active");
+
+      for (let i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener("click", () => {
+          let page = navLinks[i]
+            .getAttribute("aria-controls")
+            .split("v-pills-")[1];
+          console.log(page);
+          history.pushState("", "", page);
+        });
+      }
+    </script>
+  </body>
+</html>
